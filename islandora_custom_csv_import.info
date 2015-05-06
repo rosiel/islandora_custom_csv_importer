@@ -1,0 +1,6 @@
+name = Islandora Custom CSV Import
+description = Create Custom objects from supplied CSV.
+dependencies[] = islandora
+dependencies[] = islandora_basic_collection
+package = Islandora
+core = 7.x

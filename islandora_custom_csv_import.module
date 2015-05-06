@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Creates Islandora Entities from CSV.
+ */
+
+// Permissions.
+define('ISLANDORA_CUSTOM_CSV_IMPORT', 'Import custom objects from csv');
+
+/**
+ * Implements hook_menu().
+ */
+function islandora_custom_csv_import_menu() {
+  return array(
+    'import_custom_csv' => array(
+      'title' => 'Import Custom Objects from CSV',
+      'type' => MENU_NORMAL_ITEM,
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('islandora_custom_import_form'),
+      'file' => 'includes/islandora_custom_csv_import.form.inc',
+      'access arguments' => array(ISLANDORA_CUSTOM_CSV_IMPORT),
+    ),
+  );
+}
+
+/**
+ * Implements hook_permission().
+ */
+function islandora_custom_csv_import_permission() {
+  return array(
+    ISLANDORA_CUSTOM_CSV_IMPORT => array(
+      'title' => t('Import Islandora Stuff from CSV'),
+      'description' => t('Import custom objs from user-supplied CSV.'),
+    ),
+  );
+}
